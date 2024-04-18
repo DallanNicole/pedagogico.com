@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/encuensta.css">
+    
+    <script type="text/javascript">
+      function validarRegistro() {
+          var dni = document.getElementById("dni").value;
+          var nombre = document.getElementById("nombre").value;
+          var apellidos = document.getElementById("apellidos").value;
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+          var confirmPassword = document.getElementById("confirm-password").value;
+  
+          // Verificar que los campos no estén vacíos
+          if (dni === "" || nombre === "" ||  email === ""  ) {
+              alert("Por favor, complete todos los campos");
+              return false;
+          }
+  
+          // Verificar que el DNI tenga 8 dígitos
+          if (dni.length !== 8) {
+              alert("El DNI debe tener 8 dígitos");
+              return false;
+          }
+  
+          // Verificar que el email tenga un formato válido
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+              alert("Por favor, ingrese un email válido");
+              return false;
+          }
+  
+          return true;
+      }
+  </script>
+  </head>
+  <body>
+    <h1 id="title">Formulario de Encuesta </h1>
+    <p id="description">Gracias por tomarte el tiempo para ayudarnos a mejorar la plataforma.</p>
+      <form id="survey-form">
+        <div>
+        <label FOR="nombre"> NOMBRES Y APELLIDOS</label>
+        <input id="nombre" type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+
+        <div>
+        <label for="email">Correo Electrónico </label>
+        <input id="email" type="email" name="email" placeholder="Ingresa tu correo electrónico" required></label>
+        </div>
+
+        <div>
+        <label for="number">Edad </label>
+          <input id="number" type="number" placeholder="Edad" name="number" min="16" max="120"></label>
+        </div>
+
+        <div>
+          <p>GENERO:</p>
+          <select id="dropdown" name="genero">
+          <option>Femenino</option>
+          <option>Masculino</option>
+          </select>
+        </div>
+
+        <div>
+        <p>¿Estado Civil?</p>
+        <select id="dropdown" name="estado">
+        <option>casado</option>
+        <option>soltero</option>
+        <option>divorciado</option>
+        <option>viudo</option>
+        </select>
+        </div>
+
+        <div>
+        <p>¿Te encuentras trabajando actualmente?</p>
+        <label><input type="radio" name="user-recommend" value="quizás"> SI</label>
+        <label><input type="radio" name="user-recommend" value="no-seguro"> NO</label>
+        </div>
+
+        <div>
+          <label id="number-label" for="number">Cuanto tiempo te demoras en llegar a nuestro centro institucional<span>(opcional)</span> <input id="number" placeholder="minuto o horas" type="number" min="16" max="120"></label>
+          </div>
+
+        <div>
+          <p>¿Cuál es tu característica favorita ?</p>
+          <select id="dropdown">
+          <option>Selecciona una opción</option>
+          <option>Desafíos</option>
+          <option>Proyectos</option>
+          <option>Comunidad</option>
+          <option>Código Abierto</option>
+        </select>
+        </div>
+
+        <div>
+          <p>¿Con que artefactos cuentas en tu vivienda ? <span>(Marca todas las que correspondan)</span></p>
+          <label><input type="checkbox" value="proyectos-front-end"> cocina </label>
+          <label><input type="checkbox" value="proyectos-back-end"> tv</label>
+          <label><input type="checkbox" value="visualización-de-datos"> refrigeradora</label>
+          <label><input type="checkbox" value="desafíos"> Microondas</label>
+          <label><input type="checkbox" value="comunidad-de-código-abierto"> luz y agua</label>
+          <label><input type="checkbox" value="salas-de-ayuda-de-gitter"> luz</label>
+          <label><input type="checkbox" value="videos"> agua</label>
+          <label><input type="checkbox" value="encuentros-en-la-ciudad"> desague</label>
+          <label><input type="checkbox" value="wiki">laptop</label>
+          <label><input type="checkbox" value="foro"> pc</label>
+          <label><input type="checkbox" value="cursos-adicionales"> internet</label>
+          <label><input type="checkbox" value="cursos-adicionales"> Cable</label>
+        </div>
+
+        <div>
+          <p>¿Algún comentario o sugerencia?</p>
+          <textarea placeholder="Ingresa tu comentario aquí..." id="submit"></textarea>
+        </div>
+
+        <div>
+          <button id="submit" type="submit">Enviar</button>
+        </div>
+      </form>
+  </body>
+</html>
